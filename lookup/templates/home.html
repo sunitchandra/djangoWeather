@@ -2,14 +2,21 @@
 
 {% block content %}
 
-<h1>Hello World..!!</h1>
 <br/>
-{{ api.0 }}
-<br/><br/>
-Date Observed: {{ api.0.DateObserved }} <br/>
-Area : {{ api.0.ReportingArea }} <br/>
-AQI : {{ api.0.AQI }} <br/>
-Category: {{ api.0.Category.Name }} <br/>
+{% if api %}
+    {% if api == 'Error...' %}
+        Hi There, we are facing an error at the moment. Please try again after sometime.
+    {% else %}
+        <div class="jumbotron {{ category_color }}">
+            <h1 class="display-4">{{ api.0.Category.Name }} </h1>
+            <p class="lead">{{ api.0.ReportingArea }} Air Quality : {{ api.0.AQI }}</p>
+            <p class="lead">Date Observed: {{ api.0.DateObserved }}</p>
+                {{ category_desctiption }}                
+        {{ api.0 }}
+        </div>
+    {% endif %}
+{% endif %}
+
 
 
 {% endblock %}
