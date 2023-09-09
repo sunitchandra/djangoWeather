@@ -3,5 +3,13 @@
 {% block content %}
 
 <h1>Hello World..!!</h1>
+<br/>
+{{ api.0 }}
+<br/><br/>
+Date Observed: {{ api.0.DateObserved }} <br/>
+Area : {{ api.0.ReportingArea }} <br/>
+AQI : {{ api.0.AQI }} <br/>
+Category: {{ api.0.Category.Name }} <br/>
+
 
 {% endblock %}
