@@ -3,6 +3,10 @@
 {% block content %}
 
 <br/>
+{% if zipcode %}
+    {{ zipcode }}
+{% endif %}
+
 {% if api %}
     {% if api == 'Error...' %}
         Hi There, we are facing an error at the moment. Please try again after sometime.
@@ -12,7 +16,11 @@
             <p class="lead">{{ api.0.ReportingArea }} Air Quality : {{ api.0.AQI }}</p>
             <p class="lead">Date Observed: {{ api.0.DateObserved }}</p>
                 {{ category_desctiption }}                
-        {{ api.0 }}
+        <br><br><br>
+        {{ api.0 }} <br/>
+        {{ api.1 }} <br/>
+        {{ api.2 }} <br/>
+
         </div>
     {% endif %}
 {% endif %}
